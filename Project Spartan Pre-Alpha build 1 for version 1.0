@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html> 
+ <head>
+    <title>Project Spartan Pre-Alpha Build 1 version 1.0</title> 
+</head>
+ <body>
+    <p align="center"> 
+      <canvas id="canvas"></canvas> 
+    </p>
+ </body>
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        //START CODE HERE
+        background(34, 255, 0);
+        
+        
+        //END CODE HERE
+    }};
+
+    // Defining Canvas
+    var canvas = document.getElementById("canvas");
+    // Passing Processing Instance and canvas
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
