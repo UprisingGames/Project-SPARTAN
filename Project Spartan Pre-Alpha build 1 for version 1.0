@@ -13,12 +13,103 @@
  <script>
     var sketchProc = function(processingInstance) {
      with (processingInstance) {
-        //START CODE HERE
-        background(34, 255, 0);
+	 //START CODE HERE
+frameRate(60);
+size(1418,720);
+var scenario = 1;
+var Player1Health = 100;
+var Player2Health = 100;
+var Player1Power = 100;
+var Player2Power = 100;
+var Player1X = 100;
+var Player1Y = 100;
+var Player2X = 1300;
+var Player2Y = 600;	
+	
+var Player1Setup = function() {
+	//Drawing Player 1
+	//Head
+    fill(255, 243, 194);
+    ellipse(Player1X,Player1Y,25,15);
+    fill(66, 42, 0);
+    arc(Player1X,Player1Y,25,15,-180,0);
+    //Body
+    fill(255, 243, 194);
+    rect(Player1X-20,Player1Y+15,40,5);
+    fill(66, 42, 0);
+    noStroke();
+    rect(Player1X-5,Player1Y+7,10,25);
+    rect(Player1X-15,Player1Y+15,30,5);
+    strokeWeight(10);
+    //Pants
+    fill(163, 119, 6);
+    rect(Player1X-5,Player1Y+32,4,20);
+    rect(Player1X+1,Player1Y+32,4,20);
+    //shoes
+    fill(54, 41, 0);
+    rect(Player1X-6,Player1Y+48,6,6);
+    rect(Player1X+1,Player1Y+48,6,6);
+    //backpack
+    fill(153, 125, 15);
+    ellipse(billyX,billyY+20,10,20);
+	//End Drawing Player 1
+	
+	//Set Moving Controls and Attacking Controls
+	var keyPressed = function() {
+		if (keyCode == RIGHT) {
+			Player1X = Player1X + 5;
+		} else if (keyCode == DOWN) {
+			Player1Y = Player1Y + 5;
+		} else if (keyCode == LEFT) {
+			Player1X = Player1X - 5;
+		} else if (keyCode == UP) {
+			Player1Y = Player1Y - 5;
+		}
+		}	
+	};
+		
+	//Main Draw Function
+	var draw = function() {
+		
+		//Start Scenario 1
+		if (scenario === 1) {
+		background(13,255,0);
+		textFont('cursive');
+		textSize(40);
+		text('Project Spartan',500,100);
+		textSize(15);
+		text('By: Uprising Games',550,130);
+		fill(30, 77, 2);
+        rect(400,325,300,50);
+        fill(255, 255, 255);
+        text('Click here to start',490,356);
+        text('Version HTML 1.2.2 BETA',10,15);
+        if (mouseX>400 && mouseX<700 && mouseY<375 && 
+        mouseY>300) {
+            fill(255, 0, 0);
+            rect(400,325,300,50);
+            fill(255, 255, 255);
+            text('Click here to start',490,356);
+        }
         
-        
-        //END CODE HERE
-    }};
+        mouseClicked = function() {
+            if (mouseX>400 && mouseX<700 && mouseY<375 && mouseY>300 && scenario === 1) {
+            scenario+=1;
+            }
+        };
+		}
+		//End Scenario 1
+		
+		if (scenario === 2) {
+		background(168, 124, 49);
+		Player1Setup();
+		}
+		
+};
+
+
+//END CODE HERE
+}};
 
     // Defining Canvas
     var canvas = document.getElementById("canvas");
